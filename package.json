@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emnapi/core": "^1.9.2",
+    "@emnapi/runtime": "^1.9.2",
     "emnapi": "^1.9.2",
     "lil-gui": "^0.21.0",
     "three": "^0.162.0"
