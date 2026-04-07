@@ -1,45 +1,47 @@
-// ─── GRID ────────────────────────────────────────────────────────────────────
-export const GRID_COLS  = 3;
-export const GRID_ROWS  = 4;
-export const CELL_GAP   = 0.125;
-export const MARGIN     = 0.125;
+export const cfg = {
+  // ─── GRID ──────────────────────────────────────────────────────────────────
+  GRID_COLS:  3,
+  GRID_ROWS:  4,
+  CELL_GAP:   0.125,
+  MARGIN:     0.125,
 
-// ─── CONTOURS ────────────────────────────────────────────────────────────────
-export const CONTOUR_N  = 32;
-export const SAMPLE_RES = 32 * 7.5;
+  // ─── CONTOURS ──────────────────────────────────────────────────────────────
+  CONTOUR_N:  32,
+  SAMPLE_RES: 240,      // marching-squares field resolution per side
 
-// ─── CANVAS TEXTURE ──────────────────────────────────────────────────────────
-export const CANVAS_PX  = 1024;
-export const LINE_W     = 5;
+  // ─── CANVAS TEXTURE ────────────────────────────────────────────────────────
+  CANVAS_PX:  1024,
+  LINE_W:     3.0,
 
-// ─── SCENE ───────────────────────────────────────────────────────────────────
-export const ORTHO_H    = 15.0;
+  // ─── SCENE ─────────────────────────────────────────────────────────────────
+  ORTHO_H:    15.0,
 
-// ─── ANIMATION ───────────────────────────────────────────────────────────────
-export const UPDATES_PF = 1;       // cells redrawn per update tick
-export const ANIM_FPS   = 1;       // texture update rate (ticks per second)
+  // ─── ANIMATION ─────────────────────────────────────────────────────────────
+  UPDATES_PF: 1,
+  ANIM_FPS:   1,
 
-// ─── POST-PROCESSING ─────────────────────────────────────────────────────────
-export const USE_SOBEL      = true;
-export const USE_PIXELATION = true;
-export const USE_THRESHOLD  = true;
-export const PIXEL_SIZE     = 4;       // pixelation block size (px)
-export const THRESHOLD      = 0.666;   // luminance cutoff (0–1)
-export const DITHER_STR     = 0.125;   // dither band width
-export const ABOVE_CSS      = '#ffffff'; // color when lum ≥ threshold
-export const BELOW_CSS      = '#000000'; // color when lum < threshold
-export const BELOW_ALPHA    = 0.0;       // 0 = transparent below
+  // ─── POST-PROCESSING ───────────────────────────────────────────────────────
+  USE_SOBEL:      false,
+  USE_PIXELATION: true,
+  USE_THRESHOLD:  true,
+  PIXEL_SIZE:     1.5,
+  THRESHOLD:      0.175,
+  DITHER_STR:     0.0,
+  ABOVE_CSS:      '#ffffff',
+  BELOW_CSS:      '#000000',
+  BELOW_ALPHA:    0.0,
 
-// ─── GRID 3D ─────────────────────────────────────────────────────────────────
-export const DISP_AMP  = 0.05;   // fbm vertex Z displacement (fraction of cell size)
-export const TILT_AMP  = 0.15;   // max per-axis tilt in radians
-export const DEPTH_AMP = 0.25;   // max Z depth stratification (world units)
+  // ─── GRID 3D ───────────────────────────────────────────────────────────────
+  DISP_AMP:   0.05,
+  TILT_AMP:   0.05,
+  DEPTH_AMP:  0.05,
 
-// ─── COLOURS ─────────────────────────────────────────────────────────────────
-export const PAPER_CSS  = '#0000ff';
-export const INK_CSS    = '#ffffff';
-export const PAPER_HEX  = 0x0000ff;
+  // ─── COLOURS ───────────────────────────────────────────────────────────────
+  PAPER_CSS:  '#0000ff',
+  INK_CSS:    '#ffffff',
+  PAPER_HEX:  0x0000ff,
 
-// ─── BODY STYLE ──────────────────────────────────────────────────────────────
-export const BODY_BG_CSS = '#0000ff';
-export const BODY_BLEND  = 'normal';   // CSS mix-blend-mode on the canvas
+  // ─── BODY ──────────────────────────────────────────────────────────────────
+  BODY_BG_CSS: '#0000ff',
+  BODY_BLEND:  'normal',
+};
