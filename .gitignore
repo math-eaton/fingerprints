@@ -1,1 +1,4 @@
 inspo/
+# dist/
+# node_modules/
+.claude/

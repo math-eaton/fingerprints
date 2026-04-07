@@ -5,12 +5,16 @@ import {
   GRID_COLS, GRID_ROWS,
   CELL_GAP, MARGIN,
   CANVAS_PX, ORTHO_H,
+  DISP_AMP, TILT_AMP, DEPTH_AMP,
 } from './config.js';
 
-const SUBDIV   = 1;   // vertex subdivisions per plane side
-const DISP_AMP = 0.05; // Z displacement as a fraction of cell size
-const TILT_AMP = 0.15; // max per-axis tilt in radians (~3°)
-const DEPTH_AMP = 0.25; // max Z offset (depth stratification)
+const SUBDIV = 1;
+
+export const gridParams = {
+  dispAmp:  DISP_AMP,
+  tiltAmp:  TILT_AMP,
+  depthAmp: DEPTH_AMP,
+};
 
 export const cells = [];
 
@@ -67,9 +71,9 @@ export function buildGrid(scene, aspect, time) {
       const pos = geo.attributes.position;
       const sf  = config.seed * 0.04;
       for (let vi = 0; vi < pos.count; vi++) {
-        const vx = pos.getX(vi) / cell; // [-0.5, 0.5]
+        const vx = pos.getX(vi) / cell;
         const vy = pos.getY(vi) / cell;
-        const z  = (fbm(vx * 2.2 + sf, vy * 2.2 + sf + 4.1) - 0.5) * DISP_AMP * cell;
+        const z  = (fbm(vx * 2.2 + sf, vy * 2.2 + sf + 4.1) - 0.5) * gridParams.dispAmp * cell;
         pos.setZ(vi, z);
       }
       pos.needsUpdate = true;
@@ -89,10 +93,10 @@ export function buildGrid(scene, aspect, time) {
       mesh.position.set(
         cx,
         cy,
-        (Math.random() * 2 - 1) * DEPTH_AMP,
+        (Math.random() * 2 - 1) * gridParams.depthAmp,
       );
-      mesh.rotation.x = (Math.random() * 2 - 1) * TILT_AMP;
-      mesh.rotation.y = (Math.random() * 2 - 1) * TILT_AMP;
+      mesh.rotation.x = (Math.random() * 2 - 1) * gridParams.tiltAmp;
+      mesh.rotation.y = (Math.random() * 2 - 1) * gridParams.tiltAmp;
 
       scene.add(mesh);
       cells.push({ canvas, texture, config, mesh });
