@@ -207,7 +207,8 @@ const ARCHETYPES = {
 const ARCHETYPE_OPTIONS  = Object.keys(ARCHETYPES);
 const ARCHETYPE_BY_TYPE  = Object.fromEntries(Object.entries(ARCHETYPES).map(([k, v]) => [v, k]));
 
-const gui = new GUI({ title: 'Controls' });
+const gui = new GUI({ title: 'Controls', touchStyles: true });
+let guiState = {};
 
 // ── Edge detection ─────────────────────────────────────────────────────────
 const sobelFolder = gui.addFolder('Edge detection');
@@ -314,11 +315,12 @@ gui.folders.forEach(f => f.close());
 const toggleBtn = document.getElementById('gui-toggle');
 
 function showGUI() {
-  gui.open();   // ensure root panel is expanded, not just title-bar
   gui.show();
+  gui.load(guiState); // restore folder states
   toggleBtn.style.display = 'none';
 }
 function hideGUI() {
+  guiState = gui.save(); // save folder states before hiding
   gui.hide();
   toggleBtn.style.display = 'flex';
 }
