@@ -29,14 +29,18 @@ function updateCameraFrustum() {
   camera.updateProjectionMatrix();
 }
 
-const camera = new THREE.OrthographicCamera(
-  -(ORTHO_H * aspect) / 2,
-   (ORTHO_H * aspect) / 2,
-   ORTHO_H / 2,
-  -ORTHO_H / 2,
-  0.1, 100,
-);
-camera.position.set(0, 0, 5);
+// const camera = new THREE.OrthographicCamera(
+//   -(ORTHO_H * aspect) / 2,
+//    (ORTHO_H * aspect) / 2,
+//    ORTHO_H / 2,
+//   -ORTHO_H / 2,
+//   0.1, 100,
+// );
+// camera.position.set(0, 0, 5);
+
+const camera = new THREE.PerspectiveCamera(45, aspect, 0.1, 100);
+camera.position.set(0, 0, 20);
+updateCameraFrustum();
 
 // ─── SCENE ───────────────────────────────────────────────────────────────────
 const scene = new THREE.Scene();

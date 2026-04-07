@@ -10,7 +10,7 @@ export const SAMPLE_RES = 256;    // marching-squares field resolution (per side
 
 // ─── CANVAS TEXTURE ──────────────────────────────────────────────────────────
 export const CANVAS_PX  = 1024;    // off-screen canvas pixel size (square)
-export const LINE_W     = 5;    // contour stroke width (canvas px) — uniform, no hierarchy
+export const LINE_W     = 4;    // contour stroke width (canvas px) — uniform, no hierarchy
 
 // ─── SCENE ───────────────────────────────────────────────────────────────────
 export const ORTHO_H    = 15.0;   // orthographic camera view height (world units)
